@@ -6,7 +6,6 @@ const catalog = () => {
   const btnCatalog = document.querySelector(".catalog-button > button");
   const catalogModal = document.querySelector(".catalog");
   const catalogModalItem = document.querySelectorAll(".catalog  li");
-  console.log(catalogModalItem);
 
   let isOpen = false;
   btnCatalog.addEventListener("click", () => {
