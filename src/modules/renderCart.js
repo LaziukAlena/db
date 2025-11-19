@@ -1,14 +1,20 @@
-const renderGoods = (goods) => {
-  const goodsWrapper = document.querySelector(".goods");
+const renderCart = (goods) => {
+  const cartWrapper = document.querySelector(".cart-wrapper");
 
-  localStorage.setItem("goods", JSON.stringify(goods));
+  cartWrapper.innerHTML = "";
 
-  goodsWrapper.innerHTML = "";
-
-  goods.forEach((goodsItem) => {
-    goodsWrapper.insertAdjacentHTML(
+  if (goods.length === 0) {
+    cartWrapper.insertAdjacentHTML(
       "beforeend",
-      `<div class="col-12 col-md-6 col-lg-4 col-xl-3">
+      `
+      <div id="cart-empty">Ваша корзина пока пуста</div>
+      `
+    );
+  } else {
+    goods.forEach((goodsItem) => {
+      cartWrapper.insertAdjacentHTML(
+        "beforeend",
+        `
                   <div class="card" data-key=${goodsItem.id}>
                   
                   ${
@@ -29,12 +35,13 @@ const renderGoods = (goods) => {
                       <h5 class="card-title">
                       ${goodsItem.title}
                       </h5>
-                      <button class="btn btn-primary">В корзину</button>
+                      <button class="btn btn-primary">Удалить</button>
                     </div>
                   </div>
-                </div>`
-    );
-  });
+                  `
+      );
+    });
+  }
 };
 
-export default renderGoods;
+export default renderCart;

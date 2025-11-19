@@ -1,6 +1,6 @@
 const getData = (str) => {
   return fetch(
-    `https://db-ozon-default-rtdb.firebaseio.com/goods.json?${
+    `https://db-test-ozon-default-rtdb.firebaseio.com/goods.json?${
       str ? `search=${str}` : ""
     }`
   ).then((response) => {
